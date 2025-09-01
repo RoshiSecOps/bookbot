@@ -4,6 +4,7 @@ def word_count(file_contents):
 
 def count_charcaters(file_contents):
     total_chars = {}
+    chars_list = []
     for word in file_contents:
         word = word.lower()
         for char in word:
@@ -11,12 +12,13 @@ def count_charcaters(file_contents):
                 total_chars[char] += 1
             else:
                 total_chars[char] = 1
-    return total_chars
-
-def sort_chars(chars_dict):
-    chars_list = []
-    for char in chars_dict:
-        char = {"char": char, "num": chars_dict[char]}
+    for char in total_chars:
+        char = {"char": char, "num": total_chars[char]}
         chars_list.append(char)
+    return chars_list
+
+def sort_on(items):
+    return items["num"]
+
+
   
-    print(chars_list)
